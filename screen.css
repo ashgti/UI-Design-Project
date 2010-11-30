@@ -1,0 +1,135 @@
+a{
+    color:#2E6E9E;
+    text-decoration: none;
+}
+a:hover {text-decoration:underline;}
+a img {
+border: none;
+}
+#logo {
+box-shadow: 1px 1px black;
+}
+#wrap {
+position: relative;
+width: 840px;
+margin: 0 auto;
+}
+div#results {
+float: left;
+display: none;
+width: 25em;
+}
+div#results div {
+display: table-row;
+}
+div#results p {
+display: table-cell;
+padding: 0.5em;
+width: 250px;
+}
+#results p img {
+vertical-align: middle;
+}
+#details {
+position: absolute;
+background: white;
+border: 1px solid black;
+display: none;
+padding: 5px;
+z-index: 5;
+}
+#details span {
+font-size:16px;
+}
+#img {
+text-align: center;
+display: block;
+padding: 5px;
+}
+nav {
+position: absolute;
+top: 10px;
+right: 15px;
+}
+#col {
+width: 140px;
+float: left;
+height: 100%;
+position: relative;
+}
+#imginfo {
+float: left;
+}
+body {
+background: #f5fbff;
+font-family: Helvetica, arial, sans-serif;
+}
+header {
+position: relative;
+top: 250px;
+width: 800px;
+}
+header.details {
+top: 0;
+}
+header div {
+width: 450px;
+position: relative;
+left: 300px;
+top: -65px;
+}
+header input[type=text] {
+width: 250px;
+height: 30px;
+padding: 0;
+position: absolute;
+font-size: 22px;
+border: 1px solid black;
+box-shadow: 1px 1px black;
+-webkit-box-shadow: 1px 1px black;
+-moz-box-shadow: 1px 1px black;
+color: #666;
+padding: 4px 4px 6px 4px;
+border-top-left-radius: 0.5em;
+border-bottom-left-radius: 0.5em;
+-webkit-border-top-left-radius: 0.5em;
+-webkit-border-bottom-left-radius: 0.5em;
+-moz-border-radius-topleft:0.5em;
+-moz-border-radius-bottomleft:0.5em;
+}
+header input[type=submit] {
+width: 70px;
+height: 42px;
+border: 1px solid black;
+background: white;
+position: absolute;
+top: 0px;
+left: 259px;
+box-shadow: 1px 1px black;
+-webkit-box-shadow: 1px 1px black;
+-moz-box-shadow: 1px 1px black;
+font-size: 18px;
+border-top-right-radius: 0.5em;
+border-bottom-right-radius: 0.5em;
+-webkit-border-top-right-radius: 0.5em;
+-webkit-border-bottom-right-radius: 0.5em;
+-moz-border-radius-topright:0.5em;
+-moz-border-radius-bottomright:0.5em;
+}
+header input.clicked {
+background: #ccc;
+}
+form {
+width: 350px;
+}
+.plus{color:orange;}
+.stars{color:grey;}
+.comment{border-top:1px solid grey;}
+.klabam{display:none;}
+#detail_box{float:left;width:620px;padding-left: 10px;border-left: 1px solid lightblue;}
+#col .stars {}
+#col .stars span {color: black;}
+#col.details {text-align:right;padding: 0 10px;width:180px;}
+.comment a {text-decoration:none;}
+.comment {margin-bottom: 15px;}
+ul {padding-left: 5px;}

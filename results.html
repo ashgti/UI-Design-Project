@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+    <title>Foo</title>
+    <link rel="stylesheet" href="./screen.css" type="text/css" media="screen">
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.js"></script>
+    <script>
+    var img = {
+        height : 520,
+        width : 390
+    };
+    $(function () {
+        var call_bk = function () {
+            var pos = $(this).offset();
+            var w = $(this).width();
+            var h = $(this).height();
+            $("#details").css({top: pos.top - (((w*1.5)/2) - (w/2)), left: pos.left - (((h*1.5)/2) - (h/2))});
+            $("#details img").css({width: w * 1.5, height: h * 1.5});
+            $("#details").show('fast');
+        };
+        $("#results img").mouseenter(call_bk);
+        var fader;
+        $("#details").click(function() {
+            window.location = "./details.html";
+        })
+        $("#details").mouseenter(function () {
+            clearTimeout(fader);
+        });
+        $("#details").mouseleave(function () {
+            fader = setTimeout(function () {
+                $("#details").hide('fast');
+            }, 500);
+        });
+    });
+    </script>
+<body>
+    <div id=wrap>
+        <header>
+            <a href="./index.html"><img src="./Logo_smaller.png" alt=Logo></a>
+            <form>
+                <input type=text value="Orange-Banana">
+                <input type=submit>
+            </form>
+        </header>
+        <nav>
+            <a href="./upload.html">Upload</a> | <a href="./login.html">Login</a>
+        </nav>
+        <div id=col>
+            <p>Color:</p>
+            <ul>
+                <li>Red</li>
+                <li>Green</li>
+                <li>Blue</li>
+                <li>Orange</li>
+                <li>Yellow</li>
+                <li>Purple</li>
+                <li>Black
+                <li>White
+            </ul>
+            <p>Size:</p>
+            <ul>
+                <li><a href=#>small [640x480]</a>
+                <li><a href=#>medium [1365x1024]</a>
+                <li><a href=#>large [1920x1200]</a>
+            </ul>
+        </div>
+        <div id=results>
+            <div>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=95px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=95px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=95px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=95px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=95px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt width=95px>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id=details>
+        <div id=img>
+            <img src="file:///Users/john/Projects/search/one/orange-banana.jpg" alt>
+        </div>
+        <span>Orange-Banana.jpg</span>
+        <a href=#>Download</a>
+    </div>

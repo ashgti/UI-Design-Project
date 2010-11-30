@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Details</title>
+    <link rel="stylesheet" href="./screen.css" type="text/css" media="screen">
+    <link type="text/css" href="./css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" />	
+	<script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
+    <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.js"></script>
+    <script>
+    $(function() {
+    		$("#rerun").button({}).next().button({
+    					text: false,
+    					icons: {
+    						primary: "ui-icon-triangle-1-s"
+    					}
+    				}).parent().buttonset();
+    	});
+    </script>
+<body>
+    <div id=wrap>
+        <header class=details>
+            <a href="./index.html"><img src="./Logo_smaller.png" alt=Logo></a>
+            <div>
+                <form>
+                    <input id=query name=query type=text value="query...">
+                    <input id=btn value="Search" type=submit>
+                </form>
+            </div>
+        </header>
+        <div id=col class=details>
+            <a href=#>User Account</a>
+            <br>
+            <a href=#>Uploaded Images</a>
+        </div>
+        <div id=detail_box style="vertical-align:text-top;">
+            <h1>Upload a new Image</h1>
+            <form>
+                <strong style="vertical-align:top;">Preview:
+                <img src="./orange-banana.jpg" alt width=150px></strong>
+                <dl>
+                    <dl><label for=filename>File:</label></dl>
+                    <dd><input type=file></dd>
+                    <dt><label for=name>Name:</label></dt>
+                    <dd><input id=name name=name type=text value="Name"></dd>
+                    <dt><label for=tags>Tags:</label></dt>
+                    <dd><input id=tags name=tags type=text value="Orange,fruit, peel, banana, silly, yellw" ></dd>
+                    <dt><label for=descrip>Description:</label></dt>
+                    <dd><textarea style="width: 250px;height: 70px"></textarea></dd>
+                    <dt>&nbsp;</dt>
+                    <dt></dt>
+                    <dd><button>Add Image</button></dd>
+                </dl>
+            </form>
+        </div>

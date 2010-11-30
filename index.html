@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<head>
+    <title>Image Searches</title>
+    <link rel="stylesheet" href="./screen.css" type="text/css" media="screen">
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.js"></script>
+    <script>
+    var img = {
+        height : 520,
+        width : 390
+    };
+    $(function () {
+        var call_bk = function () {
+            var pos = $(this).offset();
+            var w = $(this).width();
+            var h = $(this).height();
+            $("#details").css({top: pos.top - (((w*1.5)/2) - (w/2)), left: pos.left - (((h*1.5)/2) - (h/2))});
+            $("#details img").css({width: w * 1.5, height: h * 1.5});
+            $("#details").show('fast');
+        };
+        $("#results img").mouseenter(call_bk);
+        var fader;
+        $("#details").click(function() {
+            window.location = "./details.html";
+        })
+        $("#details").mouseenter(function () {
+            clearTimeout(fader);
+        });
+        $("#details").mouseleave(function () {
+            fader = setTimeout(function () {
+                $("#details").hide('fast');
+            }, 500);
+        });
+        $("#btn").click(function () {
+            return false;
+        });
+        var first = 0;
+        $("#query").focusin(function () {
+            $(this).css({color:'black', 'font-size':'22px'});
+            if (first == 0) {
+                first = 1;
+                $(this).val("");
+                $(this).keydown(function(){
+                    $("header").animate({top: 0}, 250, 'linear', function () {
+                        $(".klabam").show('fast');
+                    });
+                });
+            }
+        });
+        $("#btn").mousedown(function () {
+            $(this).addClass('clicked');
+        }).mouseup(function () {
+            $(this).removeClass('clicked');
+        });
+    });
+    </script>
+<body>
+    <div id=wrap>
+        <header>
+            <a href="./index.html"><img src="./Logo_smaller.png" alt=Logo></a>
+            <div>
+                <form>
+                    <input id=query name=query type=text value="query...">
+                    <input id=btn value="Search" type=submit>
+                </form>
+            </div>
+        </header>
+        <nav>
+            <a href="./upload.html">Upload</a> | <a href="./login.html">Login</a>
+        </nav>
+        <div id=col class=klabam>
+            <p>Color:</p>
+            <ul>
+                <li><a href="#">Red</a></li>
+                <li><a href="#">Green</a></li>
+                <li><a href="#">Blue</a></li>
+                <li><a href="#">Orange</a></li>
+                <li><a href="#">Yellow</a></li>
+                <li><a href="#">Purple</a></li>
+                <li><a href="#">Black</a></li>
+                <li><a href="#">White</a></li>
+            </ul>
+            <p>Size:</p>
+            <ul>
+                <li><a href=#>small <small>[640x480]</small></a>
+                <li><a href=#>medium <small>[1365x1024]</small></a>
+                <li><a href=#>large <small>[1920x1200]</small></a>
+            </ul>
+        </div>
+        <div id=results class=klabam>
+            <div>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=95px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=100px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=110px>
+                </p>
+                <p>
+                    <img src="./orange-banana.jpg" alt width=90px>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id=details>
+        <div id=img>
+            <img src="./orange-banana.jpg" alt>
+        </div>
+        <span>
+            <a href="#">Orange-Banana</a>
+            <span class=stars><span class=plus>***</span>**</span>
+        </span>
+    </div>
