@@ -57,18 +57,18 @@
 <body>
     <div id=wrap>
         <header>
-            <a href="./index.html"><img src="./Logo_smaller.png" alt=Logo></a>
+            <a href="./index.html" alt="Logo"><img id=logo_img src="./Logo-new.png" alt="Logo"></a>
             <div>
                 <form>
-                    <input id=query name=query type=text value="query...">
+                    <input id=query name=query type=text value="query..." tabindex=1>
                     <input id=btn value="Search" type=submit>
                 </form>
             </div>
         </header>
         <nav>
-            <a href="./upload.html">Upload</a> | <a href="./login.html">Login</a>
+            <a href="./upload.html" tabindex=2>Upload</a> | <a href="./login.html" tabindex=3>Login</a>
         </nav>
-        <div id=col class=klabam>
+        <div id=col class='klabam colors'>
             <p>Color:</p>
             <ul>
                 <li><a href="#">Red</a></li>
@@ -82,12 +82,12 @@
             </ul>
             <p>Size:</p>
             <ul>
-                <li><a href=#>small <small>[640x480]</small></a>
-                <li><a href=#>medium <small>[1365x1024]</small></a>
-                <li><a href=#>large <small>[1920x1200]</small></a>
+                <li><a href=# title="[640x480]">small</a>
+                <li><a href=# title="[1365x1024]">medium</a>
+                <li><a href=# title="[1920x1200]">large</a>
             </ul>
         </div>
-        <div id=results class=klabam>
+        <div id=results class='klabam'>
             <div>
                 <p>
                     <img src="./orange-banana.jpg" alt width=90px>

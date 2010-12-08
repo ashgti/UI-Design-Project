@@ -2,21 +2,25 @@
 <head>
     <title>Details</title>
     <link rel="stylesheet" href="./screen.css" type="text/css" media="screen">
-    <link type="text/css" href="./css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" />	
-	<script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
+    <link type="text/css" href="./css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" />    
+    <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
     <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.js"></script>
     <script>
-    $(function() {
-    		$("#rerun").button({}).next().button({
-    					text: false,
-    					icons: {
-    						primary: "ui-icon-triangle-1-s"
-    					}
-    				}).parent().buttonset();
-    	});
+    $(function() {        
+        $("#btn").mousedown(function () {
+            $(this).addClass('clicked');
+        }).mouseup(function () {
+            $(this).removeClass('clicked');
+        });
+        $("#rerun").button({}).next().button({
+            text: false,
+            icons: {
+                primary: "ui-icon-triangle-1-s"
+            }
+        }).parent().buttonset();
+    });
     </script>
-<body>
     <div id=wrap>
         <header class=details>
             <a href="./index.html"><img src="./Logo_smaller.png" alt=Logo></a>
@@ -27,6 +31,9 @@
                 </form>
             </div>
         </header>
+        <nav>
+            <a href="./upload.html">Upload</a> | <a href="./login.html">Login</a>
+        </nav>
         <div id=col class=details>
             <a href=#>User Account</a>
             <br>

@@ -2,93 +2,133 @@
 <head>
     <title>Details</title>
     <link rel="stylesheet" href="./screen.css" type="text/css" media="screen">
-    <link type="text/css" href="./css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" />	
-	<script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
+    <link type="text/css" href="./css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" />    
+    <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
     <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.js"></script>
     <script>
     $(function() {
-    		$("#rerun").button({}).next().button({
-    					text: false,
-    					icons: {
-    						primary: "ui-icon-triangle-1-s"
-    					}
-    				}).parent().buttonset();
-    	});
+            $("#rerun").button({}).next().button({
+                text: false,
+                icons: {
+                    primary: "ui-icon-triangle-1-s"
+                }
+            }).parent().buttonset();
+            
+            $("#flash").hide();
+
+            var inverse_score = 2;
+            var your_score = 0;
+            function update_stars() {
+                if (your_score == 0) {
+                    $("#your_vote img").attr("src", "./Star-icon-bw.png");
+                }
+                else {
+                    $("#your_vote img").attr("src", "./Star-icon.png");
+                    $("#your_vote img:lt("+ (5 - your_score) +")").attr("src", "./Star-icon-bw.png");
+                    
+                    var new_score = (your_score + 3)/2;
+                    
+                    $("#cur_score").text(new_score);
+                    $("#avg_vote img").attr("src", "./Star-icon.png");
+                    $("#avg_vote img:lt("+ (5 - Math.floor(new_score)) +")").attr("src", "./Star-icon-bw.png");
+                }
+            }
+            $("#your_vote img").hover(function () {
+                $("#your_vote img").attr('src', './Star-icon.png');
+                $(this).prevUntil('p').attr("src", './Star-icon-bw.png');
+            }, update_stars);
+            $("#your_vote img").click(function () {
+                var vote = 5;
+                $(this).prevUntil("p").each(function () {
+                    vote -= 1;
+                });
+                your_score = vote;
+                update_stars();
+                $("#vote_count").text("2");
+                $("#flash").stop(true, true).show().fadeOut(2750);
+            });
+        });
     </script>
 <body>
     <div id=wrap>
         <header class=details>
-            <a href="./index.html"><img src="./Logo_smaller.png" alt=Logo></a>
+            <a href="./index.html"><img src="./Logo-new.png" alt=Logo></a>
             <div>
                 <form>
-                    <input id=query name=query type=text value="query...">
+                    <input id=query name=query type=text value="Orange Banana">
                     <input id=btn value="Search" type=submit>
                 </form>
             </div>
         </header>
+        <nav>
+            <a href="./upload.html">Upload</a> | <a href="./login.html">Login</a>
+        </nav>
         <div id=col class=details>
             <div>
                 <button id="rerun">Download</button>
                 <button id="select">Select an Size</button>
             </div>
             <br>
-            <a href=#>Add to Favs</a>
-            <br>
-            <br>
             <div class=stars>
-                <span>5 out of 5</span><br>
-                <small>[1030 votes]</small>
-                <br>
-                <img src="./Star-icon.png" height=40px>
-                <br>
-                <img src="./Star-icon.png" height=40px>
-                <br>
-                <img src="./Star-icon.png" height=40px>
-                <br>
-                <img src="./Star-icon.png" height=40px>
-                <br>
-                <img src="./Star-icon.png" height=40px>
+                <span><span id=cur_score>3</span> out of 5&nbsp; With <span id=vote_count>1</span> votes</span>
+                <div id="your_vote">
+                    <p>Your:</p>
+                    <img src="./Star-icon-bw.png" height=40px>
+                    <img src="./Star-icon-bw.png" height=40px>
+                    <img src="./Star-icon-bw.png" height=40px>
+                    <img src="./Star-icon-bw.png" height=40px>
+                    <img src="./Star-icon-bw.png" height=40px>
+                </div>
+                <div id="avg_vote">
+                    <p>Avg:</p>
+                    <img src="./Star-icon-bw.png" height=30px>
+                    <img src="./Star-icon-bw.png" height=30px>
+                    <img src="./Star-icon.png" height=30px>
+                    <img src="./Star-icon.png" height=30px>
+                    <img src="./Star-icon.png" height=30px>
+                </div>
+                <div id=flash>Saved</div>
             </div>
         </div>
         <div id=detail_box>
             <h1>Orange Banana</h1>
-            <img src="./orange-banana.jpg" alt>
-            <form style="position:relative;">
+            <img src="./orange-banana.jpg" alt="An Orange Banana" width="570px">
+            <form style="position:relative;" id="add_comment">
                 <p>Add a comment:</p>
-                <textarea style="height: 60px; width: 450px;">Comment...</textarea>
-                <button style="position:relative;left:400px">Submit</button>
+                <textarea>What a great image...</textarea>
+                <button>Submit</button>
             </form>
             <div class=comment>
-                <span>Author:</span><span>Steve</span>
+                <span>Author: <span>Steve</span></span>
                 <p>
                     Cras id sem nec velit lobortis venenatis non ac purus. Vivamus libero urna, imperdiet varius consequat ac, viverra quis ipsum. 
                 </p>
                 <span><a href=#>[reply]</a></span>
             </div>
             <div class=comment>
-                <span>Author:</span><span>Joe</span>
+                <span>Author: <span>Joe</span></span>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula tortor id urna elementum quis tristique velit molestie. Suspendisse potenti.  
                 </p>
                 <span><a href=#>[reply]</a></span>
             </div>
             <div class=comment>
-                <span>Author:</span><span>Alice</span>
+                <span>Author: <span>Alice</span></span>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 </p>
                 <span><a href=#>[reply]</a></span>
             </div>
             <div class=comment>
-                <span>Author:</span><span>Roy</span>
+                <span>Author: <span>Roy</span></span>
                 <p>
                     Aliquam iaculis sagittis lorem, a pulvinar nunc tempus at. Nulla vel libero accumsan ante pretium consectetur eu a nunc.
                 </p>
                 <span><a href=#>[reply]</a></span>
             </div>
             <div class=comment>
-                <span>Author:</span><span>Sarah</span>
+                <span>Author: <span>Sarah</span></span>
                 <p>
                     Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas at scelerisque lorem. 
                 </p>
