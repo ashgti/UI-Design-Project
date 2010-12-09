@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script src="https://www.google.com/jsapi?key=ABQIAAAAJ66MAcqGqmMlsF5CC4-xuRTBEKrOaTdmh8KZZjcpEq74mMbxdBStgRuR-b1Sn-vp_hNSPzf3SEgxYA" type="text/javascript"></script>
+<script>
+google.load("search", "1");
+google.load("jquery", "1");
+    
+google.setOnLoadCallback(function () {
+    // Our ImageSearch instance.
+    var imageSearch = new google.search.ImageSearch();
+    imageSearch.setResultSetSize(5);
+
+    var page_count = 0;
+    imageSearch.setSearchCompleteCallback(this, function (searcher) {
+        if (searcher.results && searcher.results.length > 0) {
+            // Grab our content div, clear it.
+            var contentDiv = $('#content');
+            $.each(searcher.results, function (k) {
+                // For each result write it's title and image to the screen
+                var result = searcher.results[k];
+                var imgContainer = $('<div>');
+
+                var title = $('<h2>');
+                // We use titleNoFormatting so that no HTML tags are left in the title
+                title.text(result.titleNoFormatting);
+
+                var newImg = $('<img>');
+                // There is also a result.url property which has the escaped version
+                newImg.attr('src', result.tbUrl);
+
+                imgContainer.append(title);
+                imgContainer.append(newImg);
+
+                // Put our title + image in the content
+                contentDiv.append(imgContainer);
+            });
+        }
+        if (page_count < 5) imageSearch.gotoPage(page_count++);
+    }, [imageSearch]);
+
+    // Find me a beautiful car.
+    imageSearch.execute("Banana");
+});
+</script>
+<div>
+    <p>Hi!</p>
+    <div id="content">
+    </div>
+</div>
